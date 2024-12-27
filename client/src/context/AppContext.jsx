@@ -11,7 +11,7 @@ export const AppContextProvider = (props) => {
 
     axios.defaults.withCredentials = true;
   // const backendUrl = import.meta.env.VITE_BACKEND_URL;
-  const backendUrl = "https://coding-stars-nove.vercel.app";
+  const backendUrl = "https://coding-stars-nove-axei18y47.vercel.app";
 
   const [isLoggedin, setIsLoggedin] = useState(false);
   const [userData, setUserData] = useState(null);

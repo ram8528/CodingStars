@@ -8,7 +8,6 @@ import { toast } from "react-toastify";
 export const AppContent = createContext();
 
 export const AppContextProvider = (props) => {
-
   axios.defaults.withCredentials = true;
   // const backendUrl = import.meta.env.VITE_BACKEND_URL;
   // const VercelUrl = "https://coding-stars-nove.vercel.app";
@@ -16,40 +15,44 @@ export const AppContextProvider = (props) => {
 
   const backendUrls = [
     import.meta.env.VITE_BACKEND_URL,
-    "https://coding-stars-nove.vercel.app"
+    "https://coding-stars-nove.vercel.app",
   ];
 
-  const backendUrl = backendUrls.find(url => url);
+  const backendUrl = backendUrls.find((url) => url);
   const [isLoggedin, setIsLoggedin] = useState(false);
   const [userData, setUserData] = useState(null);
 
-  const getAuthState = async() => {
+  const getAuthState = async () => {
     try {
-        const {data} = await axios.get(backendUrl + '/api/auth/is-auth')
-        if(data.success) {
-            setIsLoggedin(true);
-            getUserData()
-        }
+      const { data } = await axios.get(backendUrl + "/api/auth/is-auth");
+      if (data.success) {
+        setIsLoggedin(true);
+        getUserData();
+      } else {
+        setIsLoggedin(false);
+      }
     } catch (error) {
-        // toast.error(error.message);
-    }
-  }
-
-  const getUserData = async () => {
-    try {
-      const {data} = await axios.get(backendUrl + "/api/user/data");
-      data.success ? setUserData(data.userData) : toast.error(data.message);
-    } catch (error) {
-      toast.error(
-        error.message || "An error occurred during login."
-      );
+      if (error.response && error.response.status === 401) {
+        toast.error("You are not logged in. Please login to continue.");
+        setIsLoggedin(false); // Explicitly set the logged-in state to false
+      } else {
+        toast.error("An error occurred during authentication.");
+      }
     }
   };
 
-  useEffect(()=> {
+  const getUserData = async () => {
+    try {
+      const { data } = await axios.get(backendUrl + "/api/user/data");
+      data.success ? setUserData(data.userData) : toast.error(data.message);
+    } catch (error) {
+      toast.error(error.message || "An error occurred during login.");
+    }
+  };
+
+  useEffect(() => {
     getAuthState();
-  }, [])
-  
+  }, []);
 
   const value = {
     backendUrl,

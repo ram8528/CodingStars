@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { assets } from "../assets/assets";
 import { useNavigate } from "react-router-dom";
 import { AppContent } from "../context/AppContext";
@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 const Login = () => {
   const navigate = useNavigate();
 
-  const {backendUrl ,setIsLoggedin, getUserData} = useContext(AppContent)
+  const {backendUrl ,isLoggedIn,setIsLoggedin, getUserData} = useContext(AppContent)
 
   const [state, setState] = useState("Sign Up");
   const [name, setName] = useState("");
@@ -46,6 +46,12 @@ const Login = () => {
         toast.error(error.message ||  "An error occurred during login.")
     }
   }
+
+  useEffect(()=>{
+    if(isLoggedIn){
+      navigate('/')
+      }
+  },[])
 
   return (
     <div className="flex items-center justify-center min-h-screen px-6 sm:px-0 bg-gradient-to-br from-blue-200 to-cyan-400">

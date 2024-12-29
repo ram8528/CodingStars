@@ -5,14 +5,15 @@ import cookieParser from "cookie-parser";
 import connectDB from "./config/mongodb.js";
 import authRouter from "./routes/authRoutes.js";
 import userRouter from "./routes/userRoutes.js";
+import feedbackRouter from "./routes/feedbackRoutes.js";
 
 const app = express();
 
 const port = process.env.PORT || 4000;
 connectDB();
 
-// const allowedOrigins = ['http://localhost:5173']
-const allowedOrigins = ['https://coding-stars-one.vercel.app']
+const allowedOrigins = ['http://localhost:5173','https://codingstars.vercel.app/']
+// const allowedOrigins = ['https://coding-stars-one.vercel.app']
 
 
 app.use(express.json());
@@ -23,6 +24,7 @@ app.use(cors({origin: allowedOrigins, credentials: true}));
 app.get('/', (req,res)=> res.send("API Working Live on Web With Database"));
 app.use('/api/auth',authRouter);
 app.use('/api/user',userRouter);
+app.use('/api/feedback',feedbackRouter);
 
 
 app.listen(port, ()=> console.log(`Server started on PORT: ${port}`));

@@ -39,6 +39,7 @@ const Navbar = () => {
         }
     }
 
+    
   return (
     <div className="w-full flex justify-between items-center p-4 sm:p-6 sm:px-24 absolute top-0">
       <img src={assets.logo} alt="" className="w-28 sm:w-32" />
@@ -48,12 +49,12 @@ const Navbar = () => {
             {userData.name[0].toUpperCase() }
             <div className="absolute hidden group-hover:block top-0 right-0 z-10 text-black rounded pt-10">
                 <ul className="list-none m-0 p02 bg-gray-100 text-sm">
-
                     {
                         !userData.isAccountVerified && <li onClick={sendVerificationOtp} className="py-1 px-2 hover:bg-gray-200 cursor-pointer">Verify Email</li>
                     }
 
                     <li onClick={logout} className="py-1 px-2 hover:bg-gray-200 cursor-pointer pr-10">Logout</li>
+                    <li onClick={()=>navigate("/feedback")} className="py-1 px-2 hover:bg-gray-200 cursor-pointer pr-10">Feedback</li>
                 </ul>
             </div>
         </div>

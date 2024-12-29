@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AppContent } from "../context/AppContext";
@@ -12,7 +12,7 @@ const Feedback = () => {
         email : '',
         message : '',
     });
-    const {backendUrl} = useContext(AppContent);
+    const {backendUrl,isLoggedin} = useContext(AppContent);
 
     const navigate = useNavigate();
 
@@ -53,6 +53,12 @@ const Feedback = () => {
             toast.error("An error occurred while submitting your feedback.");
           }
     }
+
+    useEffect(()=>{
+      if(!isLoggedin) {
+        navigate("/login");
+        }
+    },[])
 
   return (
     <div className="max-x-2xl mx-auto p-6 bg-white rounded-lg shadow-lg">

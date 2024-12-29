@@ -20,7 +20,6 @@ export const AppContextProvider = (props) => {
   ];
 
   const backendUrl = backendUrls.find(url => url);
-
   const [isLoggedin, setIsLoggedin] = useState(false);
   const [userData, setUserData] = useState(null);
 

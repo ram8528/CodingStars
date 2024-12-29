@@ -10,8 +10,16 @@ export const AppContent = createContext();
 export const AppContextProvider = (props) => {
 
   axios.defaults.withCredentials = true;
-  const backendUrl = [import.meta.env.VITE_BACKEND_URL,"https://coding-stars-nove.vercel.app"];
+  // const backendUrl = import.meta.env.VITE_BACKEND_URL;
+  // const VercelUrl = "https://coding-stars-nove.vercel.app";
   // const backendUrl = "https://coding-stars-nove.vercel.app";
+
+  const backendUrls = [
+    import.meta.env.VITE_BACKEND_URL,
+    "https://coding-stars-nove.vercel.app"
+  ];
+
+    const backendUrl = backendUrls.find(url => url);
 
   const [isLoggedin, setIsLoggedin] = useState(false);
   const [userData, setUserData] = useState(null);
@@ -31,7 +39,6 @@ export const AppContextProvider = (props) => {
   const getUserData = async () => {
     try {
       const {data} = await axios.get(backendUrl + "/api/user/data");
-      
       data.success ? setUserData(data.userData) : toast.error(data.message);
     } catch (error) {
       toast.error(

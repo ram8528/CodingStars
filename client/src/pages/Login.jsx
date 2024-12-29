@@ -33,7 +33,7 @@ const Login = () => {
             }
         }else{
             const {data} = await axios.post(backendUrl + '/api/auth/login', {email, password})
-
+            // console.log(data);
             if(data.success){
                 setIsLoggedin(true)
                 getUserData()

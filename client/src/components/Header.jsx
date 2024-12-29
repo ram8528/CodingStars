@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
 import { assets } from "../assets/assets";
 import { AppContent } from "../context/AppContext";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 const Header = () => {
   const { userData } = useContext(AppContent);
+  const navigate = useNavigate(); // Initialize navigate
 
   return (
     <div className="flex flex-col items-center mt-20 px-4 text-center text-gray-800">
@@ -24,7 +26,7 @@ const Header = () => {
         Let's join our hands, start coding and be so consistent to complete a
         new product tour and we will have you up and running in no time
       </p>
-      <button className="border border-gray-500 rounded-full px-8 py-2.5 hover:bg-gray-100 transition-all">
+      <button onClick={() => navigate("/get-started")} className="border border-gray-500 rounded-full px-8 py-2.5 hover:bg-gray-100 transition-all">
         Get Started
       </button>
     </div>

@@ -19,7 +19,7 @@ export const AppContextProvider = (props) => {
     "https://coding-stars-nove.vercel.app"
   ];
 
-    const backendUrl = backendUrls.find(url => url);
+  const backendUrl = backendUrls.find(url => url);
 
   const [isLoggedin, setIsLoggedin] = useState(false);
   const [userData, setUserData] = useState(null);

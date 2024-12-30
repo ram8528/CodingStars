@@ -15,11 +15,19 @@ connectDB();
 
 const allowedOrigins = ['http://localhost:5173','https://codingstars.vercel.app/']
 // const allowedOrigins = ['https://coding-stars-one.vercel.app']
-
-
 app.use(express.json());
+
+// const corsOptions = {
+//     origin: allowedOrigins, 
+//     credentials: true,  
+//     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],  
+//     allowedHeaders: ['Content-Type', 'Authorization'], 
+// };
+
 app.use(cookieParser());
+// app.use(cors(corsOptions));
 app.use(cors({origin: allowedOrigins, credentials: true}));
+
 
 // API EndPoints
 app.get('/', (req,res)=> res.send("API Working Live on Web With Database"));

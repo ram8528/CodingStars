@@ -1,5 +1,3 @@
-// export const AppContext = createContext
-
 import axios from "axios";
 import { createContext, useEffect } from "react";
 import { useState } from "react";

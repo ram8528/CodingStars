@@ -193,8 +193,6 @@ export const isAuthenticated = async (req, res) => {
   }
 };
 
-//Send Password Reset OTP
-
 export const sendResetOtp = async (req, res) => {
   const { email } = req.body;
   if (!email) {
@@ -235,7 +233,6 @@ export const sendResetOtp = async (req, res) => {
     return res.status(500).json({ success: false, message: error.message });
   }
 };
-
 
 export const resetPassword = async(req,res) => {
     const {email, otp, newPassword} =req.body;

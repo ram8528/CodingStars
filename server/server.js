@@ -6,6 +6,7 @@ import connectDB from "./config/mongodb.js";
 import authRouter from "./routes/authRoutes.js";
 import userRouter from "./routes/userRoutes.js";
 import feedbackRouter from "./routes/feedbackRoutes.js";
+import taskRouter from "./routes/taskRoutes.js";
 
 const app = express();
 
@@ -25,6 +26,7 @@ app.get('/', (req,res)=> res.send("API Working Live on Web With Database"));
 app.use('/api/auth',authRouter);
 app.use('/api/user',userRouter);
 app.use('/api/feedback',feedbackRouter);
+app.use('/api/task',taskRouter);
 
 
 app.listen(port, ()=> console.log(`Server started on PORT: ${port}`));

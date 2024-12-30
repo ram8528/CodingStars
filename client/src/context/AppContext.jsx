@@ -36,7 +36,7 @@ export const AppContextProvider = (props) => {
         toast.error("You are not logged in. Please login to continue.");
         setIsLoggedin(false); // Explicitly set the logged-in state to false
       } else {
-        toast.error("An error occurred during authentication.");
+        // toast.error("An error occurred during authentication.");
       }
     }
   };

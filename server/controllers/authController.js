@@ -186,33 +186,15 @@ export const verifyEmail = async (req, res) => {
   }
 };
 
-// export const isAuthenticated = async (req, res) => {
-//   try {
-//     return res.status(200).json({ success: true });
-//   } catch (error) {
-//     res.status(500).json({ success: false, message: error.message });
-//   }
-// };
-
-
-
-//Send Password Reset OTP
-
 export const isAuthenticated = async (req, res) => {
   try {
-    // console.log('Cookies:', req.cookies); // Log cookies to see if token is present
-    const token = req.cookies.token;
-    if (!token) {
-      return res.status(401).json({ success: false, message: 'No token found' });
-    }
-    // Verify token and continue authentication process
-    jwt.verify(token, process.env.JWT_SECRET);
     return res.status(200).json({ success: true });
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
   }
 };
 
+//Send Password Reset OTP
 
 export const sendResetOtp = async (req, res) => {
   const { email } = req.body;

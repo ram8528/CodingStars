@@ -35,6 +35,8 @@ const Login = () => {
             const {data} = await axios.post(backendUrl + '/api/auth/login', {email, password})
             // console.log(data);
             if(data.success){
+              console.log(data);
+              
                 setIsLoggedin(true)
                 getUserData()
                 navigate('/')

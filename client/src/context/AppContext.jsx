@@ -44,6 +44,8 @@ export const AppContextProvider = (props) => {
       const { data } = await axios.get(backendUrl + "/api/user/data");
       data.success ? setUserData(data.userData) : toast.error(data.message);
     } catch (error) {
+      console.log(error);
+      
       toast.error(error.message || "An error occurred during login.");
     }
   };

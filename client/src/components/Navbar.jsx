@@ -58,18 +58,23 @@ const Navbar = () => {
                   Verify Email
                 </li>
               )}
-
               <li
-                onClick={logout}
-                className="py-1 px-2 hover:bg-gray-200 cursor-pointer pr-10"
+                onClick={() => navigate("/task")}
+                className="py-1 px-2 hover:bg-gray-200 cursor-pointer pr-10 font-semibold"
               >
-                Logout
+                To-DO Task
               </li>
               <li
                 onClick={() => navigate("/feedback")}
                 className="py-1 px-2 hover:bg-gray-200 cursor-pointer pr-10"
               >
                 Feedback
+              </li>
+              <li
+                onClick={logout}
+                className="py-1 px-2 hover:bg-gray-200 cursor-pointer pr-10"
+              >
+                Logout
               </li>
             </ul>
           </div>

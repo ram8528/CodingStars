@@ -14,6 +14,18 @@ const Header = () => {
         alt=""
         className="w-36 h-36 rounded-full mb-6"
       />
+      <div class="fixed top-60 right-10 z-50">
+        <button
+          onClick={() => navigate("/task")}
+          class="rounded-tl-xl bg-gradient-to-r from-purple-600 via-pink-500 to-orange-400 
+          px-5 py-2 text-white-500 text-lg transform transition-all
+           duration-500 hover:scale-110 hover:shadow-2xl hover:bg-cyan-300
+            hover:text-white hover:rotate-6 hover:animate-pulse"
+        >
+          Task Organizer
+        </button>
+      </div>
+
       <h1 className="flex items-center gap-2 text-xl sm:text-3xl font-medium mb-2">
         Hii {userData ? userData.name : "Coding Star"}!
         <img src={assets.hand_wave} className="w-8 aspect-square" alt="" />
@@ -23,8 +35,12 @@ const Header = () => {
         Welcome to Developers Group
       </h2>
       <p className="mb-8 max-w-md">
-        Let's join our hands, start coding and be so consistent to complete a
-        new product tour and we will have you up and running in no time
+        We are a Software as a Service (SaaS) company, providing robust
+        authentication, authorization, user management , task organiztion like
+        ToDo Task Organization.{}
+        <span onClick={() => navigate("/todointro")} className="cursor-pointer text-red-600 font-bold underline">
+          Coding Stars
+        </span>
       </p>
       <button
         onClick={() => navigate("/get-started")}

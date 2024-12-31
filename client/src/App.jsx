@@ -10,6 +10,7 @@ import Feedback from './pages/Feedback';
 import Started from './pages/started';
 import Task from './pages/Task';
 import { TaskProvider } from './context/TaskContext.jsx';
+import TodoIntro from './pages/ToDoIntro.jsx';
 
 const App = () => {
   return (
@@ -31,6 +32,7 @@ const App = () => {
             </TaskProvider>
           }
         />
+        <Route path = '/todointro' element = {<TodoIntro/>} />
       </Routes>
     </div>
   )

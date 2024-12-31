@@ -26,7 +26,10 @@ const Header = () => {
         Let's join our hands, start coding and be so consistent to complete a
         new product tour and we will have you up and running in no time
       </p>
-      <button onClick={() => navigate("/get-started")} className="border border-gray-500 rounded-full px-8 py-2.5 hover:bg-gray-100 transition-all">
+      <button
+        onClick={() => navigate("/get-started")}
+        className="border border-gray-500 rounded-full px-8 py-2.5 hover:bg-gray-100 transition-all"
+      >
         Get Started
       </button>
     </div>

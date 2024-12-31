@@ -8,6 +8,8 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Feedback from './pages/Feedback';
 import Started from './pages/started';
+import Task from './pages/Task';
+import { TaskProvider } from './context/TaskContext.jsx';
 
 const App = () => {
   return (
@@ -20,6 +22,15 @@ const App = () => {
         <Route path= '/reset-password' element = {<ResetPassword/>} />
         <Route path = '/feedback' element = {<Feedback/>}/>
         <Route path = '/get-started' element = {<Started/>} />
+        {/* <Route path = '/task' element = {<Task/>}/> */}
+        <Route
+          path="/task"
+          element={
+            <TaskProvider>
+              <Task />
+            </TaskProvider>
+          }
+        />
       </Routes>
     </div>
   )

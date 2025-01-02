@@ -14,7 +14,7 @@ export const AppContextProvider = (props) => {
   const backendUrls = [
     import.meta.env.VITE_BACKEND_URL,
     // "https://coding-stars-nove.vercel.app",
-    "https://codingstars.onrender.com/",
+    "https://codingstars.onrender.com",
   ];
 
   const backendUrl = backendUrls.find((url) => url);

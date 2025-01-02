@@ -13,7 +13,8 @@ export const AppContextProvider = (props) => {
 
   const backendUrls = [
     import.meta.env.VITE_BACKEND_URL,
-    "https://coding-stars-nove.vercel.app",
+    // "https://coding-stars-nove.vercel.app",
+    "https://codingstars.onrender.com/",
   ];
 
   const backendUrl = backendUrls.find((url) => url);
@@ -45,7 +46,7 @@ export const AppContextProvider = (props) => {
       data.success ? setUserData(data.userData) : toast.error(data.message);
     } catch (error) {
       console.log(error);
-      
+
       toast.error(error.message || "An error occurred during login.");
     }
   };

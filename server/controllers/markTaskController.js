@@ -1,7 +1,7 @@
 import { TaskModel } from "../models/taskModel.js";
 
 export const markTask = async(req,res) => {
-    console.log(req.body.taskId);
+    // console.log(req.body.taskId);
     try {
         const task = await TaskModel.findOneAndUpdate(
             {

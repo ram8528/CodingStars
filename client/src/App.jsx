@@ -14,7 +14,7 @@ import TodoIntro from './pages/ToDoIntro.jsx';
 
 const App = () => {
   return (
-    <div>
+    <div >
       <ToastContainer/>
       <Routes>
         <Route path= '/' element = {<Home/>} />

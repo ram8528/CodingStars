@@ -46,7 +46,7 @@ const createTask = async (req, res) => {
       });
     }
   } catch (error) {
-    console.error(error);
+    // console.error(error);
     return res.status(403).json({
       success: false,
       message: "Something went wrong",

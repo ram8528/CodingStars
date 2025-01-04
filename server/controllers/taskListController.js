@@ -21,7 +21,7 @@ export const getTasks = async (req, res) => {
             taskList: taskList
         });
     } catch (error) {
-        console.error(error);
+        // console.error(error);
         return res.status(500).json({
             success: false,
             message: "Something went wrong while fetching tasks"

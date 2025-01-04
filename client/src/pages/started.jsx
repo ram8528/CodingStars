@@ -37,7 +37,7 @@ const Started = () => {
           We provide cutting-edge coding solutions, learning resources, and mentorship to help developers create innovative, impactful solutions.
         </p>
         <a
-          href="#services"
+          href="https://videostreamtube1.web.app/"
           className="inline-block py-3 px-6 bg-yellow-500 text-gray-800 rounded-full text-lg font-semibold hover:bg-yellow-600 transition ease-in-out"
         >
           Discover Our Services

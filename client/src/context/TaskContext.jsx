@@ -34,7 +34,8 @@ export const TaskProvider = ({ children }) => {
         toast(response.data.message);
       }
     } catch (error) {
-      console.error(error);
+      // console.error(error);
+      toast.error(response.data.message);
     }
   };
   // Fetch tasks using axios
@@ -55,7 +56,8 @@ export const TaskProvider = ({ children }) => {
         console.error("Failed to fetch tasks");
       }
     } catch (error) {
-      console.error("Error fetching tasks:", error);
+      // console.error("Error fetching tasks:", error);
+      toast.error(response.data.json);
     }
   };
 
@@ -70,10 +72,12 @@ export const TaskProvider = ({ children }) => {
       if (data.success) {
         fetchTasks(); // Refresh tasks after marking a task as completed
       } else {
-        console.error("Failed to mark task as completed");
+        // console.error("Failed to mark task as completed");
+        toast.error(response.data.message);
       }
     } catch (error) {
-      console.error("Error marking task as completed:", error);
+      // console.error("Error marking task as completed:", error);
+      toast.error(response.data.message);
     }
   };
 
@@ -90,10 +94,12 @@ export const TaskProvider = ({ children }) => {
         setPendingTasks(data?.list?.filter((task) => !task?.isCompleted));
         setCompletedTasks(data?.list?.filter((task) => task?.isCompleted));
       } else {
-        console.error("Failed to remove task");
+        // console.error("Failed to remove task");
+        toast.error(response.data.message);
       }
     } catch (error) {
-      console.error("Error removing task:", error);
+      // console.error("Error removing task:", error);
+      toast.error(response.data.message);
     }
   };
 

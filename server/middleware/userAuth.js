@@ -19,8 +19,8 @@ const userAuth = async(req,res,next) => {
 
         next();
     } catch (error) {
-        console.error("Error decoding token:", error);
-        res.status(400).json({success: false, message: error.message});
+        // console.error("Error decoding token:", error);
+        return res.status(400).json({success: false, message: error.message});
     }
 }
 export default userAuth;

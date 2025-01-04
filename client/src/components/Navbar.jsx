@@ -26,7 +26,7 @@ const Navbar = () => {
   const sendVerificationOtp = async () => {
     try {
       axios.defaults.withCredentials = true;
-      const { data } = await axios.post(
+      const { data } = await axios.get(
         backendUrl + "/api/auth/send-verify-otp"
       );
 
@@ -37,13 +37,19 @@ const Navbar = () => {
         toast.error(data.message);
       }
     } catch (error) {
-      toast.error(error.message);
+      // console.log(error);
+      
+      toast.error(error.response.data.message);
     }
+  };
+
+  const handleLogoClick = () => {
+    navigate('/');
   };
 
   return (
     <div className="w-full flex justify-between items-center p-4 sm:p-6 sm:px-24 absolute top-0">
-      <img src={assets.logo} alt="" className="w-28 sm:w-32" />
+      <img src={assets.logo} alt="" className="w-28 sm:w-32 cursor-pointer" onClick={handleLogoClick} />
 
       {userData ? (
         <div className="w-8 h-8 flex justify-center items-center rounded-full bg-black text-white relative group ">

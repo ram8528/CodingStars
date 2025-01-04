@@ -26,6 +26,18 @@ const Header = () => {
         </button>
       </div>
 
+      <div class="fixed top-60 left-10 z-50">
+        <button
+          onClick={() => navigate("/feedback")}
+          class="rounded-tl-xl bg-gradient-to-r from-red-600 via-purple-500 to-cyan-400 
+    px-5 py-2 text-black text-lg transform transition-all duration-500 
+    hover:scale-110 hover:shadow-2xl hover:bg-cyan-300 hover:text-black 
+    hover:rotate-3 motion-safe:animate-bounce"
+        >
+          Feedback
+        </button>
+      </div>
+
       <h1 className="flex items-center gap-2 text-xl sm:text-3xl font-medium mb-2">
         Hii {userData ? userData.name : "Coding Star"}!
         <img src={assets.hand_wave} className="w-8 aspect-square" alt="" />
@@ -36,9 +48,12 @@ const Header = () => {
       </h2>
       <p className="mb-8 max-w-md">
         We are a Software as a Service (SaaS) company, providing robust
-        authentication, authorization, user management , task organiztion like
+        authentication, authorization, user management , task organization like
         ToDo Task Organization.{}
-        <span onClick={() => navigate("/todointro")} className="cursor-pointer text-red-600 font-bold underline">
+        <span
+          onClick={() => navigate("/todointro")}
+          className="cursor-pointer text-red-600 font-bold underline"
+        >
           Coding Stars
         </span>
       </p>

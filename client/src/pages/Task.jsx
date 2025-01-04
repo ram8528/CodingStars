@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { useTaskContext } from "../context/TaskContext.jsx";
 import { AppContent } from "../context/AppContext.jsx";
 import { IoCheckmarkCircleOutline } from "react-icons/io5";
@@ -60,7 +60,7 @@ const Task = () => {
   return (
     <div>
       <Navbar />
-      <div className="container mx-auto pt-10 mt-10 px-4">
+      <div className="container min-h-screen mx-auto pt-10 mt-10 px-4">
         <h1 className="font-bold text-center">
           Welcome,{" "}
           <span className="text-2xl md:text-3xl bg-gradient-to-r from-blue-500 via-teal-400 to-green-400 text-transparent bg-clip-text animate-pulse">
@@ -72,31 +72,30 @@ const Task = () => {
           </span>
         </h1>
 
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6 mt-8">
+        <div className="flex flex-col md:flex-row justify-between items-stretch gap-6 mt-8">
           {/* Left Side - Add Task Form */}
-          <form
-            onSubmit={handleCreateTask}
-            className="w-full md:w-[40%] p-4 md:p-6 bg-gradient-to-r from-blue-400 via-indigo-500 to-purple-600 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
-          >
-            <input
-              type="text"
-              value={taskName}
-              onChange={(e) => settaskName(e.target.value)}
-              placeholder="Enter task name"
-              className="w-full p-3 md:p-4 rounded-lg text-gray-700 border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all duration-200"
-            />
-            <button
-              className="w-full mt-4 p-2 md:p-3 text-white bg-gradient-to-r from-pink-500 to-orange-500 rounded-lg shadow-md hover:shadow-lg focus:ring-2 focus:ring-pink-300 focus:ring-opacity-50 transition-all duration-300"
-              type="submit"
-            >
-              Add Task
-            </button>
-          </form>
+          <div className="flex flex-col justify-center items-center md:w-[40%] h-60 p-4 pt-40 md:p-6  bg-gradient-to-r from-blue-400 via-indigo-500 to-purple-600 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <form onSubmit={handleCreateTask} className="w-full">
+              <input
+                type="text"
+                value={taskName}
+                onChange={(e) => settaskName(e.target.value)}
+                placeholder="Enter task name"
+                className="w-full p-3 md:p-4 rounded-lg text-gray-700 border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all duration-200"
+              />
+              <button
+                className="w-full mt-4 p-2 md:p-3 text-white bg-gradient-to-r from-pink-500 to-orange-500 rounded-lg shadow-md hover:shadow-lg focus:ring-2 focus:ring-pink-300 focus:ring-opacity-50 transition-all duration-300"
+                type="submit"
+              >
+                Add Task
+              </button>
+            </form>
+          </div>
 
           {/* Right Side - Task List */}
           <div className="w-full md:w-[55%] p-4 md:p-6 border bg-gray-800 rounded-xl shadow-lg max-h-[70vh] md:max-h-[90vh] overflow-y-auto">
-            <table className="w-full bg-gray-900 text-white rounded-t-md sticky top-0 z-10">
-              <thead>
+            <table className="w-full bg-gray-900 text-white rounded-t-md top-0 z-10 sticky">
+              <thead className="min-h-screen">
                 <tr>
                   <th
                     scope="col"
@@ -135,8 +134,8 @@ const Task = () => {
               </thead>
             </table>
 
-            <table className="w-full divide-gray-700 border-4 text-center">
-              <thead className="bg-gray-800 dark:bg-gray-900">
+            <table className="w-full divide-gray-700 border-4 text-center min-h-screen rounded-lg">
+              <thead className="bg-gray-800 dark:bg-gray-900 sticky top-0 z-10 shadow-md rounded-lg">
                 <tr>
                   <th
                     scope="col"
@@ -152,7 +151,7 @@ const Task = () => {
                   </th>
                 </tr>
               </thead>
-              <tbody className="bg-gray-700 divide-y divide-gray-600">
+              <tbody className="bg-gray-700 divide-y divide-gray-600 overflow-y-auto max-h-[70vh]">
                 {renderTasks()?.map((task) => (
                   <tr
                     className="hover:bg-gray-600 dark:hover:bg-gray-700"
